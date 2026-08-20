@@ -106,34 +106,36 @@ npm install
 
 Start the backend:
 
+```bash
 npm start
-
+```
 
 The backend API will run at:
 
-
+```text
 http://localhost:5000
-
+```
 
 ### 3. Install Frontend Dependencies
 
 Open a **new terminal**:
 
+```bash
 cd frontend
 npm install
-
+```
 
 Start the frontend:
 
-
+```bash
 npm run dev
-
+```
 
 The frontend will run at:
 
-
+```text
 http://localhost:5173
-
+```
 
 ## 🗄️ Database
 
@@ -143,15 +145,15 @@ The database is initialized automatically when the backend starts.
 
 The database schema is defined in:
 
-
+```text
 database/schema.sql
-
+```
 
 Additional learning-path and course content is available in:
 
-
+```text
 database/additional_paths.sql
-
+```
 
 The application automatically initializes the required database structure and seed data.
 
@@ -159,12 +161,12 @@ The application automatically initializes the required database structure and se
 
 Create a `.env` file inside the `backend` directory if your application requires custom configuration.
 
-.env
+```env
 PORT=5000
 JWT_SECRET=replace_with_a_secure_secret
 JWT_EXPIRES_IN=7d
 DB_PATH=./learnpath.sqlite
-
+```
 
 ### Environment Variables
 
@@ -199,7 +201,7 @@ DB_PATH=./learnpath.sqlite
 
 ## 🔄 Application Flow
 
-`
+```text
                     ┌─────────────────────┐
                     │       User          │
                     └──────────┬──────────┘
@@ -226,30 +228,30 @@ DB_PATH=./learnpath.sqlite
                     ┌─────────────────────┐
                     │   SQLite Database   │
                     └─────────────────────┘
-``
+```
 
 ## 🚀 Running the Application
 
 Start the backend first:
 
-
+```bash
 cd backend
 npm start
-
+```
 
 Then, in another terminal, start the frontend:
 
-
+```bash
 cd frontend
 npm run dev
-
+```
 
 The application will be available at:
 
-
+```text
 Frontend: http://localhost:5173
 Backend:  http://localhost:5000
-
+```
 
 ## 🔒 Authentication
 
@@ -259,7 +261,7 @@ Passwords are securely hashed using **bcryptjs** before being stored in the data
 
 Authentication flow:
 
-
+```text
 Register
    ↓
 Password Hashing
@@ -271,7 +273,7 @@ Login
 JWT Token Generated
    ↓
 Authenticated API Requests
-
+```
 
 ## 📈 Learning Progress
 
@@ -344,6 +346,11 @@ Stop the backend and verify that the SQLite database configuration is correct. R
 * JWT is used for authentication.
 * Keep sensitive environment variables out of Git.
 
+## 📄 License
+
+This project is intended for **educational and personal development purposes**.
+
+---
 
 ## 👩‍💻 Author
 
@@ -354,3 +361,4 @@ Computer Science and Data Science Engineering
 ---
 
 ⭐ If you find this project useful, consider giving the repository a star!
+
