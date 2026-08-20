@@ -27,7 +27,11 @@ app.use('/api/progress', progressRoutes);
 // Error Handling Middleware
 app.use(errorHandler);
 
-const PORT = config.PORT;
-app.listen(PORT, () => {
-    console.log(`🚀 LearnPath REST API running on http://localhost:${PORT}`);
-});
+if (require.main === module) {
+    const PORT = config.PORT;
+    app.listen(PORT, () => {
+        console.log(`🚀 LearnPath REST API running on http://localhost:${PORT}`);
+    });
+}
+
+module.exports = app;
