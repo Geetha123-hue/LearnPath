@@ -31,7 +31,7 @@ export const LoginPage = () => {
     <div style={{ maxWidth: '440px', margin: '3rem auto' }}>
       <div className="card">
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div style={{ display: 'inline-flex', padding: '0.75rem', backgroundColor: 'rgba(99, 102, 241, 0.15)', borderRadius: '12px', color: '#6366f1', marginBottom: '0.75rem' }}>
+          <div style={{ display: 'inline-flex', padding: '0.75rem', backgroundColor: 'rgba(15, 159, 146, 0.15)', borderRadius: '12px', color: '#0f9f92', marginBottom: '0.75rem' }}>
             <LogIn size={28} />
           </div>
           <h1 style={{ fontSize: '1.75rem', fontWeight: '800' }}>Welcome Back</h1>
@@ -76,7 +76,7 @@ export const LoginPage = () => {
 
         <div style={{ textAlign: 'center', marginTop: '1.5rem', fontSize: '0.85rem', color: '#94a3b8' }}>
           Don't have an account?{' '}
-          <Link to="/register" style={{ color: '#6366f1', fontWeight: '600' }}>
+          <Link to="/register" style={{ color: '#0f9f92', fontWeight: '600' }}>
             Sign up
           </Link>
         </div>

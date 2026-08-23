@@ -2,7 +2,7 @@ import React from 'react';
 import { useProgress } from '../hooks/useProgress';
 import { useAuth } from '../hooks/useAuth';
 import { PathCard } from '../components/PathCard';
-import { Award, BookOpen, CheckCircle, Flame, Plus, Target, Trophy } from 'lucide-react';
+import { Award, BookOpen, CheckCircle, Compass, Flame, LockKeyhole, Plus, Target, Trophy } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const DashboardPage = () => {
@@ -22,9 +22,12 @@ export const DashboardPage = () => {
   const overallProgress = totalSteps ? Math.round((completedStepCount / totalSteps) * 100) : 0;
   const activePath = paths.find(path => path.progressPercentage < 100) || paths[0];
   const badges = [
-    { label: 'First Step', detail: 'Complete your first topic', earned: completedStepCount >= 1, icon: Target },
-    { label: 'Momentum', detail: 'Complete 5 topics', earned: completedStepCount >= 5, icon: Flame },
-    { label: 'Path Finisher', detail: 'Finish a complete path', earned: paths.some(path => path.progressPercentage === 100), icon: Trophy }
+    { label: 'First Spark', detail: 'Complete your first topic', earned: completedStepCount >= 1, icon: Target, tone: 'coral' },
+    { label: 'Trail Finder', detail: 'Complete 3 topics', earned: completedStepCount >= 3, icon: Compass, tone: 'blue' },
+    { label: 'Momentum', detail: 'Complete 5 topics', earned: completedStepCount >= 5, icon: Flame, tone: 'orange' },
+    { label: 'Path Finisher', detail: 'Finish a complete path', earned: paths.some(path => path.progressPercentage === 100), icon: Trophy, tone: 'green' },
+    { label: 'Path Collector', detail: 'Enroll in 2 learning paths', earned: enrolledCount >= 2, icon: BookOpen, tone: 'purple' },
+    { label: 'Learning Legend', detail: 'Complete 10 topics', earned: completedStepCount >= 10, icon: Award, tone: 'gold' }
   ];
 
   return (
@@ -33,7 +36,7 @@ export const DashboardPage = () => {
       <div className="card" style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
           <h1 style={{ fontSize: '1.75rem', fontWeight: '800', marginBottom: '0.25rem' }}>
-            Welcome back, <span style={{ color: '#6366f1' }}>{user?.username}</span>
+            Welcome back, <span style={{ color: '#0f9f92' }}>{user?.username}</span>
           </h1>
           <p style={{ color: '#94a3b8', fontSize: '0.95rem' }}>
             Keep up the great work! Track your ongoing learning roadmaps below.
@@ -48,7 +51,7 @@ export const DashboardPage = () => {
       {/* Stats Cards Grid */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem', marginBottom: '2.5rem' }}>
         <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <div style={{ padding: '0.75rem', backgroundColor: 'rgba(99, 102, 241, 0.15)', borderRadius: '10px', color: '#6366f1' }}>
+          <div style={{ padding: '0.75rem', backgroundColor: 'rgba(15, 159, 146, 0.15)', borderRadius: '10px', color: '#0f9f92' }}>
             <BookOpen size={28} />
           </div>
           <div>
@@ -101,9 +104,9 @@ export const DashboardPage = () => {
           <span className="muted-text">{badges.filter(badge => badge.earned).length} of {badges.length} earned</span>
         </div>
         <div className="badges-grid">
-          {badges.map(({ label, detail, earned, icon: BadgeIcon }) => (
-            <div className={`badge-card ${earned ? 'is-earned' : ''}`} key={label}>
-              <div className="badge-icon"><BadgeIcon size={22} /></div>
+          {badges.map(({ label, detail, earned, icon: BadgeIcon, tone }) => (
+            <div className={`badge-card badge-${tone} ${earned ? 'is-earned' : ''}`} key={label}>
+              <div className="badge-icon">{earned ? <BadgeIcon size={22} /> : <LockKeyhole size={19} />}</div>
               <div><strong>{label}</strong><p>{detail}</p></div>
               {earned && <CheckCircle size={18} className="badge-check" />}
             </div>

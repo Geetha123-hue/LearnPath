@@ -14,15 +14,15 @@ export const ProgressBar = ({ percentage = 0, totalSteps = 0, completedSteps = 0
       <div style={{
         width: '100%',
         height: '8px',
-        backgroundColor: '#0f172a',
+        backgroundColor: '#0b1726',
         borderRadius: '9999px',
         overflow: 'hidden',
-        border: '1px solid #334155'
+        border: '1px solid #2b4258'
       }}>
         <div style={{
           width: `${Math.min(100, Math.max(0, percentage))}%`,
           height: '100%',
-          backgroundColor: percentage === 100 ? '#10b981' : '#6366f1',
+          backgroundColor: percentage === 100 ? '#34d399' : '#0f9f92',
           transition: 'width 0.4s ease'
         }} />
       </div>

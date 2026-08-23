@@ -25,10 +25,10 @@ export const HomePage = () => {
           alignItems: 'center',
           gap: '0.5rem',
           padding: '0.35rem 1rem',
-          backgroundColor: 'rgba(99, 102, 241, 0.1)',
-          border: '1px solid rgba(99, 102, 241, 0.3)',
+          backgroundColor: 'rgba(15, 159, 146, 0.1)',
+          border: '1px solid rgba(15, 159, 146, 0.3)',
           borderRadius: '9999px',
-          color: '#818cf8',
+          color: '#5eead4',
           fontSize: '0.85rem',
           fontWeight: '600',
           marginBottom: '1.25rem'
@@ -71,7 +71,7 @@ export const HomePage = () => {
       {/* Category Filter */}
       <div id="roadmaps" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <Compass size={22} style={{ color: '#6366f1' }} />
+          <Compass size={22} style={{ color: '#0f9f92' }} />
           <h2 style={{ fontSize: '1.5rem', fontWeight: '700' }}>Explore Learning Paths</h2>
         </div>
 

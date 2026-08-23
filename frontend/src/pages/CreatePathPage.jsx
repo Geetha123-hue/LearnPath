@@ -141,7 +141,7 @@ export const CreatePathPage = () => {
         </div>
 
         {modules.map((mod, mIdx) => (
-          <div key={mIdx} className="card" style={{ marginBottom: '1.5rem', borderLeft: '4px solid #6366f1' }}>
+          <div key={mIdx} className="card" style={{ marginBottom: '1.5rem', borderLeft: '4px solid #0f9f92' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
               <input 
                 type="text" 
@@ -214,7 +214,7 @@ export const CreatePathPage = () => {
               </div>
             ))}
 
-            <button type="button" onClick={() => addStep(mIdx)} style={{ background: 'none', border: 'none', color: '#6366f1', cursor: 'pointer', fontSize: '0.85rem', fontWeight: '600', marginTop: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+            <button type="button" onClick={() => addStep(mIdx)} style={{ background: 'none', border: 'none', color: '#0f9f92', cursor: 'pointer', fontSize: '0.85rem', fontWeight: '600', marginTop: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
               <PlusCircle size={15} />
               <span>Add Step to Module</span>
             </button>

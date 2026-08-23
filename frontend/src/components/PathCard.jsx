@@ -47,7 +47,7 @@ export const PathCard = ({ path }) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          borderTop: '1px solid #334155',
+          borderTop: '1px solid #2b4258',
           paddingTop: '1rem',
           fontSize: '0.85rem',
           color: '#64748b'

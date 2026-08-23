@@ -2,6 +2,11 @@ import React from 'react';
 import { CheckCircle2, Circle, ExternalLink, Video, FileText, Code, HelpCircle } from 'lucide-react';
 
 export const StepItem = ({ step, onToggle, isEnrolled }) => {
+  const learningAlternatives = [
+    { label: 'Infosys Springboard', url: 'https://infyspringboard.onwingspan.com/web/en/login' },
+    { label: 'Microsoft Learn', url: 'https://learn.microsoft.com/training/' }
+  ];
+
   const getIcon = (type) => {
     switch (type?.toLowerCase()) {
       case 'video': return <Video size={18} style={{ color: '#ec4899' }} />;
@@ -17,8 +22,8 @@ export const StepItem = ({ step, onToggle, isEnrolled }) => {
       alignItems: 'center',
       justifyContent: 'space-between',
       padding: '0.85rem 1rem',
-      backgroundColor: '#0f172a',
-      border: '1px solid #334155',
+      backgroundColor: '#0b1726',
+      border: '1px solid #2b4258',
       borderRadius: '8px',
       marginBottom: '0.5rem',
       transition: 'border-color 0.2s ease'
@@ -51,7 +56,7 @@ export const StepItem = ({ step, onToggle, isEnrolled }) => {
         </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+      <div className="step-resources">
         {step.estimated_minutes && (
           <span style={{ fontSize: '0.8rem', color: '#64748b' }}>
             {step.estimated_minutes} mins
@@ -59,11 +64,20 @@ export const StepItem = ({ step, onToggle, isEnrolled }) => {
         )}
         {step.resource_url && (
           <a href={step.resource_url} target="_blank" rel="noopener noreferrer" 
-             style={{ display: 'flex', alignItems: 'center', gap: '0.2rem', color: '#6366f1', fontSize: '0.85rem', fontWeight: '500' }}>
-            <span>Resource</span>
+             style={{ display: 'flex', alignItems: 'center', gap: '0.2rem', color: '#0f9f92', fontSize: '0.85rem', fontWeight: '500' }}>
+             <span>Open resource</span>
             <ExternalLink size={14} />
           </a>
         )}
+        <div className="alternative-resources">
+          <span>Also learn with</span>
+          {learningAlternatives.map((resource) => (
+            <a key={resource.label} href={resource.url} target="_blank" rel="noopener noreferrer">
+              {resource.label}
+              <ExternalLink size={12} />
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );
