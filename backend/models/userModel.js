@@ -1,7 +1,7 @@
 const db = require('../config/db');
 
 exports.findByEmail = async (email) => {
-    return await db.getOne('SELECT * FROM users WHERE email = ?', [email]);
+    return await db.getOne('SELECT * FROM users WHERE lower(trim(email)) = lower(trim(?))', [email]);
 };
 
 exports.findByUsername = async (username) => {

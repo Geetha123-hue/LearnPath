@@ -4,7 +4,8 @@ const { generateToken } = require('../services/jwtService');
 
 exports.register = async (req, res, next) => {
     try {
-        const { username, email, password } = req.body;
+        const { username, password } = req.body;
+        const email = typeof req.body.email === 'string' ? req.body.email.trim().toLowerCase() : req.body.email;
 
         if (!username || !email || !password) {
             return res.status(400).json({ error: 'Username, email, and password are required.' });
@@ -39,7 +40,8 @@ exports.register = async (req, res, next) => {
 
 exports.login = async (req, res, next) => {
     try {
-        const { email, password } = req.body;
+        const { password } = req.body;
+        const email = typeof req.body.email === 'string' ? req.body.email.trim().toLowerCase() : req.body.email;
 
         if (!email || !password) {
             return res.status(400).json({ error: 'Email and password are required.' });

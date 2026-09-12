@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFetchPaths } from '../hooks/useFetchPaths';
 import { PathCard } from '../components/PathCard';
-import { ArrowRight, BookOpen, CheckCircle2, Compass, Rocket, Sparkles, Users } from 'lucide-react';
+import { ArrowRight, BookOpen, CheckCircle2, CircleCheck, Compass, Layers3, Rocket, Sparkles, Users } from 'lucide-react';
 
 export const HomePage = () => {
   const { paths, loading, selectedCategory, setSelectedCategory, allPaths } = useFetchPaths();
@@ -20,45 +20,51 @@ export const HomePage = () => {
   return (
     <div>
       <section className="home-hero">
-        <div style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-          padding: '0.35rem 1rem',
-          backgroundColor: 'rgba(15, 159, 146, 0.1)',
-          border: '1px solid rgba(15, 159, 146, 0.3)',
-          borderRadius: '9999px',
-          color: '#5eead4',
-          fontSize: '0.85rem',
-          fontWeight: '600',
-          marginBottom: '1.25rem'
-        }}>
-          <Sparkles size={16} />
-          <span>Structured Learning Roadmaps</span>
-        </div>
-        <h1>
-          Find your next <span>career direction.</span>
-        </h1>
-        <p>
-          Pick a goal and get a practical roadmap built from free resources, community knowledge, and small steps you can finish.
-        </p>
-        <div className="career-picker">
-          <label htmlFor="career-select">I want to learn</label>
-          <div className="career-picker-row">
-            <select id="career-select" className="form-select" value={career} onChange={(event) => handleCareerChange(event.target.value)}>
-              <option value="All">Any career path</option>
-              {categories.filter(category => category !== 'All').map(category => (
-                <option key={category} value={category}>{category}</option>
-              ))}
-            </select>
-            <a href="#roadmaps" className="btn btn-primary"><Rocket size={18} /> Show my roadmap <ArrowRight size={17} /></a>
-          </div>
-          {featuredPath && (
-            <div className="career-result">
-              <CheckCircle2 size={17} />
-              <span>Recommended: <strong>{featuredPath.title}</strong></span>
+        <div className="hero-copy">
+          <div className="hero-kicker"><Sparkles size={16} /><span>Next-generation learning guidance</span></div>
+          <h1>
+            Find your next <span>career direction.</span>
+          </h1>
+          <p>
+            Instantly turn your ambition into a practical learning roadmap built from free resources, community knowledge, and small steps you can finish.
+          </p>
+          <div className="career-picker">
+            <label htmlFor="career-select">I want to learn</label>
+            <div className="career-picker-row">
+              <select id="career-select" className="form-select" value={career} onChange={(event) => handleCareerChange(event.target.value)}>
+                <option value="All">Any career path</option>
+                {categories.filter(category => category !== 'All').map(category => (
+                  <option key={category} value={category}>{category}</option>
+                ))}
+              </select>
+              <a href="#roadmaps" className="btn btn-primary"><Rocket size={18} /> Show my roadmap <ArrowRight size={17} /></a>
             </div>
-          )}
+            {featuredPath && (
+              <div className="career-result">
+                <CheckCircle2 size={17} />
+                <span>Recommended: <strong>{featuredPath.title}</strong></span>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="hero-preview" aria-label="LearnPath roadmap preview">
+          <div className="preview-header">
+            <div className="preview-brand"><Layers3 size={21} /><strong>LearnPath Roadmap</strong></div>
+            <span className="preview-status"><CircleCheck size={15} /> Ready</span>
+          </div>
+          <div className="preview-body">
+            <div className="preview-icon"><Compass size={34} /></div>
+            <strong>UI/UX Product Design</strong>
+            <span>Recommended learning path</span>
+            <div className="preview-progress"><span style={{ width: '68%' }} /></div>
+            <div className="preview-meta"><span>4 milestones</span><b>68% ready</b></div>
+          </div>
+          <div className="preview-steps">
+            <div className="preview-step is-complete"><CircleCheck size={18} /><span>Discover the fundamentals</span><b>Done</b></div>
+            <div className="preview-step"><span className="step-number">2</span><span>Build your first portfolio</span><b>Next</b></div>
+            <div className="preview-step"><span className="step-number">3</span><span>Prepare for real projects</span><b>Later</b></div>
+          </div>
         </div>
       </section>
 
