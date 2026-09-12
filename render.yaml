@@ -3,25 +3,22 @@ services:
     name: learnpath-backend
     runtime: node
     plan: free
+    rootDir: backend
     buildCommand: npm install
     startCommand: npm start
+
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 5000
+
       - key: DB_PATH
-        value: /var/data/learnpath.sqlite
+        value: ./learnpath.sqlite
+
       - key: CORS_ORIGIN
-        scope: run
-        # Set this to your Vercel frontend URL after deployment
-        # Example: https://learnpath.vercel.app
+        value: http://localhost:5173
+
       - key: JWT_SECRET
-        scope: run
-        # Generate a strong JWT secret and set it in Render dashboard
+        generateValue: true
+
       - key: JWT_EXPIRES_IN
         value: 7d
-    disk:
-      name: sqlite_data
-      mountPath: /var/data
-      sizeGB: 1
