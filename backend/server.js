@@ -15,10 +15,12 @@ const allowedOrigins = (process.env.CORS_ORIGIN || 'http://localhost:5173')
     .split(',')
     .map((origin) => origin.trim().replace(/\/$/, ''))
     .filter(Boolean);
+const vercelPreviewOrigin = /^https:\/\/(?:learn-path|learnpath)-[a-z0-9-]+-geetha-123\.vercel\.app$/;
 
 const corsOptions = {
     origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin.replace(/\/$/, ''))) {
+        const normalizedOrigin = origin?.replace(/\/$/, '');
+        if (!origin || allowedOrigins.includes(normalizedOrigin) || vercelPreviewOrigin.test(normalizedOrigin)) {
             return callback(null, true);
         }
 
