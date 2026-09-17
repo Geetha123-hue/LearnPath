@@ -7,17 +7,12 @@ services:
     buildCommand: npm ci && npm rebuild sqlite3 --build-from-source
     startCommand: npm start
 
-    disk:
-      name: sqlite_data
-      mountPath: /var/data
-      sizeGB: 1
-
     envVars:
       - key: NODE_ENV
         value: production
 
       - key: DB_PATH
-        value: /var/data/learnpath.sqlite
+        value: ./learnpath.sqlite
 
       - key: CORS_ORIGIN
         value: https://learnpath-snowy.vercel.app,https://myapp-gyd2bqbye-geetha-123.vercel.app
