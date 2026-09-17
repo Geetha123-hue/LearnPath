@@ -20,7 +20,7 @@ services:
         value: /var/data/learnpath.sqlite
 
       - key: CORS_ORIGIN
-        value: https://learnpath-snowy.vercel.app,https://learn-path-t5r3-gjr3yqh8-geetha-123.vercel.app
+        value: https://learnpath-snowy.vercel.app,https://myapp-gyd2bqbye-geetha-123.vercel.app
 
       - key: JWT_SECRET
         generateValue: true
