@@ -11,8 +11,19 @@ const progressRoutes = require('./routes/progressRoutes');
 const app = express();
 
 // CORS Configuration
+const allowedOrigins = (process.env.CORS_ORIGIN || 'http://localhost:5173')
+    .split(',')
+    .map((origin) => origin.trim().replace(/\/$/, ''))
+    .filter(Boolean);
+
 const corsOptions = {
-  origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin.replace(/\/$/, ''))) {
+            return callback(null, true);
+        }
+
+        return callback(new Error('Origin is not allowed by CORS'));
+    },
   credentials: true,
   optionsSuccessStatus: 200,
 };
